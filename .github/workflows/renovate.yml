@@ -14,4 +14,4 @@ jobs:
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
         with:
-          token: $RENOVATE_TOKEN
+          token: "$RENOVATE_TOKEN"
