@@ -14,5 +14,4 @@ jobs:
         env:
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
         with:
-          configurationFile: example/renovate-config.js
           token: $RENOVATE_TOKEN
