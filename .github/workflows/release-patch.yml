@@ -13,22 +13,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - name: Checkout next
+      - name: Prepare dev
         run: |
           git config --local user.email "release@github.com"
           git config --local user.name "Release"
           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-          git checkout next
-          git pull github next --ff-only
+          git checkout dev
+          git pull github dev --ff-only
       - run: npm ci --ignore-scripts
       - run: npm run release:patch
       - run: npm run build --if-present
       - run: npm run test:unit
-      - name: Commit files
+      - name: Commit dev
         run: |
           git add .
           if [ -z "$(git status --porcelain)" ]; then
             exit 0
           fi
           git commit -m "chore: Release patch"
+          git push github HEAD:dev
+      - name: Update next
+        run: |
+          git checkout next
+          git pull github dev --ff-only
           git push github HEAD:next
