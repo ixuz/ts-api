@@ -1,0 +1,25 @@
+name: Release to main
+on:
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        operating-system:
+          - ubuntu-latest
+        node-version:
+          - '16.x'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch
+        run: |
+          git config --local user.email "release@github.com"
+          git config --local user.name "Release"
+          git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+          git fetch
+          git checkout main
+          git pull github next --ff-only
+      - name: Commit
+        run: |
+          git push github HEAD:main HEAD:next
