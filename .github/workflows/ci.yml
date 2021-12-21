@@ -1,10 +1,6 @@
 name: CI
 on:
   push:
-    branches-ignore:    
-      - 'main'
-      - 'next'
-      - 'dev'
 jobs:
   lint:
     runs-on: ubuntu-latest
