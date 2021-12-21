@@ -1,4 +1,4 @@
-name: Release patch
+name: Release to next
 on:
   workflow_dispatch:
 jobs:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - name: Prepare dev
+      - name: Fetch
         run: |
           git config --local user.email "release@github.com"
           git config --local user.name "Release"
@@ -24,13 +24,11 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run build --if-present
       - run: npm run test:unit
-      - name: Prepare next
+      - name: Commit
         run: |
           git fetch
           git checkout next
           git pull github dev --ff-only
-          npm run release:patch
-      - name: Commit next
-        run: |
+          npm run release
           git add -A
           git push github HEAD:next HEAD:dev
