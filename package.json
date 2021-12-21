@@ -1,6 +1,6 @@
 {
   "name": "ts-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Typescript API boiler plate code",
   "main": "dist/index.js",
   "scripts": {

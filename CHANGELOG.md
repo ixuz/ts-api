@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.3 (2021-12-21)
+
+
+### Bug Fixes
+
+* readme ([0db119b](https://github.com/ixuz/ts-api/commit/0db119bee8638d749b161f2f46725c9403cf8c9a))
+
 ### 0.0.2 (2021-12-21)
 
 
