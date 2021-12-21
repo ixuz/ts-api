@@ -33,9 +33,4 @@ jobs:
       - name: Commit next
         run: |
           git add -A
-          git push github HEAD:next
-      - name: Update downstream branch
-        run: |
-          git checkout dev
-          git pull github next --ff-only
-          git push github HEAD:dev
+          git push github HEAD:next HEAD:dev
