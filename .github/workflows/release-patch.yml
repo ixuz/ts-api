@@ -33,7 +33,6 @@ jobs:
       - name: Commit next
         run: |
           git add -A
-          git commit -m "chore: Bump patch version"
           git push github HEAD:next
       - name: Update downstream branch
         run: |
