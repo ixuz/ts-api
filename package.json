@@ -8,7 +8,7 @@
     "start": "node dist/index.js",
     "lint": "npm run lint:src && npm run lint:test",
     "lint:src": "eslint ./src/*",
-    "lint:test": "eslint ./test/*",
+    "lint:test": "eslint ./test/unit/*",
     "watch": "tsc --watch",
     "test": "npm run test:unit",
     "test:unit": "jest test ./test/unit",
