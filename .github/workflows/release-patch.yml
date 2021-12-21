@@ -18,6 +18,7 @@ jobs:
           git config --local user.email "release@github.com"
           git config --local user.name "Release"
           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+          git fetch
           git checkout dev
           git pull github dev --ff-only
       - run: npm ci --ignore-scripts
