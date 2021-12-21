@@ -23,6 +23,8 @@ jobs:
           - ubuntu-latest
           - windows-latest
         node-version:
+          - '12.x'
+          - '14.x'
           - '16.x'
     timeout-minutes: 10
     steps:
