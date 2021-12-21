@@ -16,5 +16,12 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build --if-present
-      - name: Unit test
+  unit-test:
+    needs: setup
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Test
         run: npm run test:unit
