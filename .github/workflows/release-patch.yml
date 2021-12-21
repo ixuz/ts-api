@@ -24,11 +24,6 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run build --if-present
       - run: npm run test:unit
-      - name: Commit dev
-        run: |
-          git add -A
-          git commit -m "chore: Release patch"
-          git push github HEAD:dev
       - name: Prepare next
         run: |
           git fetch
