@@ -2,11 +2,6 @@ name: Renovate
 on:
   schedule:
     - cron: '*/5 * * * *'
-    inputs:
-      renovate-token:
-        description: 'The token used for renovate bot'     
-        required: true
-        default: ${{ secrets.RENOVATE_TOKEN }}
   workflow_dispatch:
     inputs:
       renovate-token:
