@@ -1,5 +1,6 @@
 name: Release patch
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -12,14 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - run: npm ci --ignore-scripts
-      - run: npm run release:patch
-      - name: Commit files
+      - name: Checkout next
         run: |
           git config --local user.email "release@github.com"
           git config --local user.name "Release"
           git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-          git pull github ${GITHUB_REF} --ff-only
+          git checkout next
+          git pull github next --ff-only
+      - run: npm ci --ignore-scripts
+      - run: npm run release:patch
+      - run: npm run build --if-present
+      - run: npm run test:unit
+      - name: Commit files
+        run: |
           git add .
           if [ -z "$(git status --porcelain)" ]; then
             exit 0
