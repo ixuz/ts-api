@@ -27,10 +27,7 @@ jobs:
       - run: npm run test:unit
       - name: Commit dev
         run: |
-          git add .
-          if [ -z "$(git status --porcelain)" ]; then
-            exit 0
-          fi
+          git add -A
           git commit -m "chore: Release patch"
           git push github HEAD:dev
       - name: Update next
