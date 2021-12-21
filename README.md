@@ -1,6 +1,6 @@
 # TypeScript API
 
-A boilerplate project!
+A boilerplate project.
 
 ## Keep dependencies up-to-date
 
