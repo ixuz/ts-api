@@ -2,12 +2,7 @@ name: Renovate
 on:
   schedule:
     - cron: '*/5 * * * *'
-  workflow_dispatch:
-    inputs:
-      renovate-token:
-        description: 'The token used for renovate bot'     
-        required: true
-        default: ${{ secrets.RENOVATE_TOKEN }}
+  workflow_dispatch: {}
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -18,4 +13,4 @@ jobs:
         uses: renovatebot/github-action@v29.27.0
         with:
           configurationFile: example/renovate-config.js
-          token: ${{ github.event.inputs.renovate-token }}
+          token: ${{ secrets.RENOVATE_TOKEN }}
