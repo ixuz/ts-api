@@ -22,7 +22,6 @@ jobs:
           git checkout dev
           git pull github dev --ff-only
       - run: npm ci --ignore-scripts
-      - run: npm run release:patch
       - run: npm run build --if-present
       - run: npm run test:unit
       - name: Commit dev
@@ -30,8 +29,18 @@ jobs:
           git add -A
           git commit -m "chore: Release patch"
           git push github HEAD:dev
-      - name: Update next
-        run: |
+      - name: Prepare next
+          git fetch
           git checkout next
           git pull github dev --ff-only
+          npm run release:patch
+      - name: Commit next
+        run: |
+          git add -A
+          git commit -m "chore: Bump patch version"
           git push github HEAD:next
+      - name: Update downstream branch
+        run: |
+          git checkout dev
+          git pull github next --ff-only
+          git push github HEAD:dev
