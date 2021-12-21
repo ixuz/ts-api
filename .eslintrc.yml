@@ -20,5 +20,3 @@ rules:
     jsx: never
     ts: never
     tsx: never
-modulePathIgnorePatterns:
-  - 'dist'
