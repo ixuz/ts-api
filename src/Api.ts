@@ -1,15 +1,15 @@
+import { inject, injectable } from 'tsyringe';
+import { IModule } from './Module/IModule';
+
+@injectable()
 export default class Api {
-  private readonly x: number;
+  private readonly module: IModule;
 
-  constructor() {
-    this.x = 123;
-  }
-
-  sum(a: number, b: number) {
-    return this.x + a + b;
+  constructor(@inject('Module') module: IModule) {
+    this.module = module;
   }
 
   toString(): string {
-    return `Saying ${this.x}`;
+    return `Api using module: ${this.module.getId()}`;
   }
 }

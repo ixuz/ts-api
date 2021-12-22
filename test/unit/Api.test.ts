@@ -1,13 +1,16 @@
+import 'reflect-metadata';
+import ModuleMock from '../../src/Module/ModuleMock';
 import Api from '../../src/Api';
 
 describe('Api', () => {
-  it('stringifies.', () => {
-    const api = new Api();
-    expect(api.toString()).toBe('Saying 123');
+  let module: ModuleMock;
+
+  beforeEach(() => {
+    module = new ModuleMock();
   });
 
-  it('sums.', () => {
-    const api = new Api();
-    expect(api.sum(1, 2)).toBe(126);
+  it('stringifies.', () => {
+    const api = new Api(module);
+    expect(api.toString()).toBe('Api using module: 100');
   });
 });
