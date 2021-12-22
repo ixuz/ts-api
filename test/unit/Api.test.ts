@@ -1,13 +1,22 @@
-import Api from '../../src/Api';
+import { Api } from '../../src/Api';
+import { IModule } from '../../src/IModule';
 
 describe('Api', () => {
+  let module: IModule;
+
+  beforeAll(() => {
+    module = {
+      getId: jest.fn(() => (100)),
+    };
+  });
+
   it('stringifies.', () => {
-    const api = new Api();
-    expect(api.toString()).toBe('Saying 123');
+    const api = new Api(module);
+    expect(api.toString()).toBe('Saying 100');
   });
 
   it('sums.', () => {
-    const api = new Api();
-    expect(api.sum(1, 2)).toBe(126);
+    const api = new Api(module);
+    expect(api.sum(1, 2)).toBe(103);
   });
 });
