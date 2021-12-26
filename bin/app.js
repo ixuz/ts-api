@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 const { AppRunner } = require('..');
 
-const main = async () => {
-  const appInstance = await new AppRunner().run();
-  // appInstance.start();
-  console.log('api.toString():', appInstance.toString());
-};
+async function main() {
+  const apiInstance = await new AppRunner().run();
+
+  async function shutDown() {
+    await apiInstance.stop();
+  }
+
+  process.on('SIGTERM', shutDown);
+  process.on('SIGINT', shutDown);
+
+  await apiInstance.start();
+}
 
 main();

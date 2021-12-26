@@ -3,10 +3,12 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/componentsjs/^4.0.0/components/context.jsonld",
     "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.6/components/context.jsonld"
   ],
-  "@id": "urn:ts-api:App",
+  "@id": "urn:ts-api:Api",
   "@type": "Api",
-  "module": {
-    "@id": "urn:ts-api:Module",
-    "@type": "ModuleA"
+  "name": "HelloApi",
+  "server": {
+    "@id": "urn:ts-api:Server",
+    "@type": "HttpServer",
+    "port": 3000
   }
 }

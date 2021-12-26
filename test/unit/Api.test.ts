@@ -1,22 +1,21 @@
 import { Api } from '../../src/Api';
-import { IModule } from '../../src/IModule';
+import { IServer } from '../../src/server/IServer';
 
 describe('Api', () => {
-  let module: IModule;
+  let server: IServer;
 
   beforeAll(() => {
-    module = {
-      getId: jest.fn(() => (100)),
+    server = {
+      start: jest.fn(),
+      stop: jest.fn(),
+      getPort: jest.fn(),
     };
   });
 
-  it('stringifies.', () => {
-    const api = new Api(module);
-    expect(api.toString()).toBe('Saying 100');
-  });
-
-  it('sums.', () => {
-    const api = new Api(module);
-    expect(api.sum(1, 2)).toBe(103);
+  it('starts.', async () => {
+    const api = new Api('TestApi', server);
+    await api.start();
+    expect(api.getServer()).toBe(server);
+    await api.stop();
   });
 });

@@ -15,7 +15,8 @@
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run build:ts && npm run build:components",
+    "build:ts": "tsc",
     "build:components": "componentsjs-generator -s src -c dist/components --typeScopedContexts",
     "start": "node bin/app.js",
     "lint": "npm run lint:src && npm run lint:test",

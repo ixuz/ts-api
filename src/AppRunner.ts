@@ -10,9 +10,9 @@ export class AppRunner {
 
     await componentsManager.configRegistry.register('config/config.jsonld');
 
-    const app = 'urn:ts-api:App';
-    const appInstance = await componentsManager.instantiate(app);
+    const api = 'urn:ts-api:Api';
+    const apiInstance = await componentsManager.instantiate(api);
 
-    return appInstance;
+    return apiInstance;
   }
 }
