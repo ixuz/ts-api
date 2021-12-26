@@ -1,17 +1,38 @@
-import { IModule } from './IModule';
+import { IServer } from './server/IServer';
 
 export class Api {
-  private readonly module: IModule;
+  private readonly name: string;
 
-  constructor(module: IModule) {
-    this.module = module;
+  private readonly server: IServer;
+
+  constructor(name: string, server: IServer) {
+    this.name = name;
+    this.server = server;
   }
 
-  sum(a: number, b: number) {
-    return this.module.getId() + a + b;
+  public async start(): Promise<void> {
+    await this.server.start();
+    Api.onStarted(this);
   }
 
-  toString(): string {
-    return `Saying ${this.module.getId()}`;
+  public async stop(): Promise<void> {
+    await this.server.stop();
+    Api.onStopped(this);
+  }
+
+  public static onStarted(api: Api): void {
+    console.log(`Api[${api.getName()}] started!`);
+  }
+
+  public static onStopped(api: Api): void {
+    console.log(`Api[${api.getName()}] stopped!`);
+  }
+
+  public getName(): string {
+    return this.name;
+  }
+
+  public getServer(): IServer {
+    return this.server;
   }
 }
