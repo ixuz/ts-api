@@ -1,15 +1,17 @@
-export default class Api {
-  private readonly x: number;
+import { IModule } from './IModule';
 
-  constructor() {
-    this.x = 123;
+export class Api {
+  private readonly module: IModule;
+
+  constructor(module: IModule) {
+    this.module = module;
   }
 
   sum(a: number, b: number) {
-    return this.x + a + b;
+    return this.module.getId() + a + b;
   }
 
   toString(): string {
-    return `Saying ${this.x}`;
+    return `Saying ${this.module.getId()}`;
   }
 }
