@@ -1,16 +1,16 @@
 {
   "name": "ts-api",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Typescript API boiler plate code",
   "lsd:module": "https://linkedsoftwaredependencies.org/bundles/npm/ts-api",
   "lsd:components": "dist/components/components.jsonld",
   "lsd:contexts": {
-    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.6/components/context.jsonld": "dist/components/context.jsonld"
+    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.7/components/context.jsonld": "dist/components/context.jsonld"
   },
   "lsd:importPaths": {
-    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.6/components/": "dist/components/",
-    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.6/config/": "config/",
-    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.6/dist/": "dist/"
+    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.7/components/": "dist/components/",
+    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.7/config/": "config/",
+    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.7/dist/": "dist/"
   },
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,7 +21,7 @@
     "start": "node bin/app.js",
     "lint": "npm run lint:src && npm run lint:test",
     "lint:src": "eslint \"src/**/*.ts\"",
-    "lint:test": "eslint \"test/unit/*.ts\"",
+    "lint:test": "eslint \"test/unit/**/*.ts\"",
     "watch": "tsc --watch",
     "test": "npm run test:unit",
     "test:unit": "jest test ./test/unit",
@@ -48,6 +48,9 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
+    "@iotakingdoms/console-logger": "^0.0.0",
+    "@iotakingdoms/core": "^0.0.2",
+    "@iotakingdoms/http-server": "^0.0.0",
     "componentsjs": "^4.5.0"
   }
 }
