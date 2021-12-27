@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.8 (2021-12-27)
+
+
+### Features
+
+* Example DI with Componentsjs ([edc32a5](https://github.com/ixuz/ts-api/commit/edc32a50ec18cc9eb4d9c4016e1f8ca0ebc0b68a))
+* **server:** added a basic http server ([149f30c](https://github.com/ixuz/ts-api/commit/149f30c29341933c0fea9f3fff2c5c91b7e8b341))
+* utilize components from external packages ([0a421aa](https://github.com/ixuz/ts-api/commit/0a421aa39decb3720b26ffd502c27cffd2667ce7))
+
+
+### Bug Fixes
+
+* adjust the linting scripts ([afadd1a](https://github.com/ixuz/ts-api/commit/afadd1a5a9eac8130a2ca1142e9c8283a114a342))
+* unit tests ([393aecd](https://github.com/ixuz/ts-api/commit/393aecd1ec21e5c8d431cb32e99fd71ed856f768))
+
 ### [0.0.6](https://github.com/ixuz/ts-api/compare/v0.0.0...v0.0.6) (2021-12-22)
 
 

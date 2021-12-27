@@ -1,6 +1,6 @@
 {
   "name": "ts-api",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Typescript API boiler plate code",
   "lsd:module": "https://linkedsoftwaredependencies.org/bundles/npm/ts-api",
   "lsd:components": "dist/components/components.jsonld",
