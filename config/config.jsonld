@@ -1,14 +1,34 @@
-{
-  "@context": [
-    "https://linkedsoftwaredependencies.org/bundles/npm/componentsjs/^4.0.0/components/context.jsonld",
-    "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.6/components/context.jsonld"
-  ],
-  "@id": "urn:ts-api:Api",
-  "@type": "Api",
-  "name": "HelloApi",
-  "server": {
-    "@id": "urn:ts-api:Server",
-    "@type": "HttpServer",
-    "port": 3000
+[
+  {
+    "@context": [
+      "https://linkedsoftwaredependencies.org/bundles/npm/componentsjs/^4.0.0/components/context.jsonld",
+      "https://linkedsoftwaredependencies.org/bundles/npm/ts-api/^0.0.7/components/context.jsonld",
+      "https://linkedsoftwaredependencies.org/bundles/npm/@iotakingdoms/core/^0.0.1/dist/components/context.jsonld",
+      "https://linkedsoftwaredependencies.org/bundles/npm/@iotakingdoms/http-server/^0.0.0/dist/components/context.jsonld",
+      "https://linkedsoftwaredependencies.org/bundles/npm/@iotakingdoms/console-logger/^0.0.0/dist/components/context.jsonld"
+    ],
+    "@graph": [
+      {
+        "@id": "urn:ts-api:Api",
+        "@type": "Api",
+        "logger": { "@id": "urn:ts-api:Logger" },
+        "name": "HelloApi",
+        "server": { "@id": "urn:ts-api:Server" }
+      },
+      {
+        "@id": "urn:ts-api:Server",
+        "@type": "HttpServer",
+        "logger": { "@id": "urn:ts-api:Logger" },
+        "port": 3000,
+        "middleware": [
+          { "@type": "NotFoundMiddleware" },
+          { "@type": "ErrorMiddleware" }
+        ]
+      },
+      {
+        "@id": "urn:ts-api:Logger",
+        "@type": "ConsoleLogger"
+      }
+    ]
   }
-}
+]

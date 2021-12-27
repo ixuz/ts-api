@@ -1,12 +1,20 @@
+import { ILogger } from '../../src/logger/ILogger';
 import { HttpServer } from '../../src/server/http/HttpServer';
 
 describe('HttpServer', () => {
+  let logger: ILogger;
   let server: HttpServer;
   let request: any;
   let response: any;
 
   beforeAll(async () => {
-    server = new HttpServer(3000);
+    logger = {
+      debug: jest.fn(),
+      info: jest.fn(),
+      warn: jest.fn(),
+      error: jest.fn(),
+    };
+    server = new HttpServer(logger, 3000, []);
     request = {};
     response = {
       setHeader: jest.fn(),
@@ -21,7 +29,7 @@ describe('HttpServer', () => {
   });
 
   it('handles requests.', async () => {
-    HttpServer.handle(request, response);
+    server.handle(request, response);
     expect(server.getPort()).toBe(3000);
     expect(server.getServer()).not.toBeUndefined();
     expect(response.statusCode).toBe(404);
