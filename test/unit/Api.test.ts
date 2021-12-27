@@ -1,6 +1,5 @@
+import { ILogger, IServer } from '@iotakingdoms/core';
 import { Api } from '../../src/Api';
-import { ILogger } from '../../src/logger/ILogger';
-import { IServer } from '../../src/server/IServer';
 
 describe('Api', () => {
   let logger: ILogger;
