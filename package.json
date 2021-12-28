@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@iotakingdoms/console-logger": "^0.0.0",
-    "@iotakingdoms/core": "^0.0.2",
+    "@iotakingdoms/core": "^0.0.3",
     "@iotakingdoms/http-server": "^0.0.0",
     "componentsjs": "^4.5.0"
   }
