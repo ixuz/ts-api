@@ -40,7 +40,7 @@
     "componentsjs-generator": "2.6.1",
     "eslint": "8.6.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jest": "25.3.2",
     "git-conventional-commits": "1.1.0",
     "standard-version": "9.3.2",
