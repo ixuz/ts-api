@@ -12,7 +12,7 @@ jobs:
           - '16.x'
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
       - name: Fetch
         run: |
           git config --local user.email "release@github.com"
